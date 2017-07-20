@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Resource for the list of items the user can select to filter their to-do list -->
+<resources>
+    <array name="filter_selections">
+        <item>All</item>
+        <item>Home</item>
+        <item>Work</item>
+        <item>School</item>
+        <item>Other</item>
+    </array>
+</resources>

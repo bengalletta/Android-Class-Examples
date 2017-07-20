@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Resource where user can select how to sort their todos-->
+<resources>
+    <array name="spinner_categories">
+        <item>Home</item>
+        <item>Work</item>
+        <item>School</item>
+        <item>Other</item>
+    </array>
+</resources>
