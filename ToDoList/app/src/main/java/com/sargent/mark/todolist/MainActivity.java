@@ -38,38 +38,36 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
         setContentView(R.layout.activity_main);
         Log.d(TAG, "oncreate called in main activity");
 
-        //instantiate the Spinner from the .xml file onto the activity
+        //initializes the spinner from xml
         filter = (Spinner) findViewById(R.id.filter_spinner);
 
-        //creates an adapter for the current activity using the array resource created for spinner
-        //items using a default spinner layout
+        //default layout
         ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.filter_selections, android.R.layout.simple_spinner_item);
 
-        //sets the default layout where the spinner items will appear on
+        //sets default layout
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        //applies the adapter on the spinner
+        //applies the adapter on spinner
         filter.setAdapter(spinnerAdapter);
 
-        //instantiate the Button for filtering from the .xml file onto the activity
+        //initializes a button for filter
         filter_button = (Button) findViewById(R.id.filter_button);
 
-        //sets up methods when the filter button is clicked
+        //sets up methods when filter button is clicked
         filter_button.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v){
-                //gets the value of the selected item chosen on the filter spinner
                 String filter_value = filter.getSelectedItem().toString();
 
-                //sets the cursor depending on the value of the spinner chosen
-                //if it's "All", it will use the getAllItems() function
-                //else it will use returnCategoryItems() which filters depending on the
-                //'category' column
-                cursor = (filter_value.equals("All") ? getAllItems(db) : returnCategoryItems(db, filter_value));
-                Log.v(TAG, "Filter button was pressed with value of: " + filter_value);
+                /* sets the cursor depending on value of spinner chosen.
+                   If "All", it will use the getAllItems() function
+                   else it will use returnCategoryItems() which filters depending on
+                   category column */
 
-                //returns a new adapter/view of the activity based on the filter user has chosen
+                cursor = (filter_value.equals("All") ? getAllItems(db) : returnCategoryItems(db, filter_value));
+                Log.v(TAG, "Filter button pressed with value of: " + filter_value);
+
                 adapter = returnNewAdapter();
 
                 rv.setAdapter(adapter);
@@ -129,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
 
     @Override
     public void closeDialog(int year, int month, int day, String description, String category) {
-        //appended String category to include extra attribute (category)
+        //appended String category to include extra category
         addToDo(db, description, formatDate(year, month, day), category);
 
         cursor = getAllItems(db);
@@ -145,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
     public ToDoListAdapter returnNewAdapter(){
         ToDoListAdapter adapter = new ToDoListAdapter(cursor, new ToDoListAdapter.ItemClickListener() {
 
-            //categories put into here
+            //categories are placed here
             @Override
             public void onItemClick(int pos, String description, String duedate, long id, String category) {
                 Log.d(TAG, "item click id: " + id);
@@ -156,7 +154,6 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
 
                 FragmentManager fm = getSupportFragmentManager();
 
-                //appended String category to include extra attribute (category)
                 UpdateToDoFragment frag = UpdateToDoFragment.newInstance(year, month, day, description, id, category);
                 frag.show(fm, "updatetodofragment");
             }
@@ -165,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
         return adapter;
     }
 
-    //Function that returns all the items in the database sorted by due date
+    //Function sorts items by due date
     private Cursor getAllItems(SQLiteDatabase db) {
         return db.query(
                 Contract.TABLE_TODO.TABLE_NAME,
@@ -178,9 +175,9 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
         );
     }
 
-    //Function that returns all the items that fits the category the user chooses
+    //Function gives items that belong to category user chooses
     private Cursor returnCategoryItems(SQLiteDatabase db, String category){
-        //query will be specific to return results based on the 'category' column
+        //query will be specific to return results based on "category"
         String selection = Contract.TABLE_TODO.COLUMN_NAME_CATEGORY + "=?";
 
         //the WHERE x = "?" clause of the query, more specifically the value of ?
@@ -203,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_DESCRIPTION, description);
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_DUE_DATE, duedate);
 
-        //gets the value of the selected spinner item and add it to the 'category' column of the DB
+        //gets the value of the selected spinner item
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_CATEGORY, category);
         return db.insert(Contract.TABLE_TODO.TABLE_NAME, null, cv);
     }
@@ -219,7 +216,8 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
         ContentValues cv = new ContentValues();
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_DESCRIPTION, description);
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_DUE_DATE, duedate);
-        //included category attribute to insert the value inside column 'category'
+
+        //included category attribute to insert into "category"
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_CATEGORY, category);
 
         return db.update(Contract.TABLE_TODO.TABLE_NAME, cv, Contract.TABLE_TODO._ID + "=" + id, null);
@@ -227,7 +225,6 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
 
     @Override
     public void closeUpdateDialog(int year, int month, int day, String description, long id, String category) {
-        //appended String category to include extra attribute (category)
         updateToDo(db, year, month, day, description, id, category);
         adapter.swapCursor(getAllItems(db));
     }

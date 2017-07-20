@@ -30,10 +30,10 @@ public class AddToDoFragment extends DialogFragment{
     public AddToDoFragment() {
     }
 
-    //To have a way for the activity to get the data from the dialog
+    //This is how the activity gets the data from the dialog
     public interface OnDialogCloseListener {
-        //appended String category to include extra attribute (category)
         void closeDialog(int year, int month, int day, String description, String category);
+        // adding a category
     }
 
     @Override
@@ -43,7 +43,7 @@ public class AddToDoFragment extends DialogFragment{
         dp = (DatePicker) view.findViewById(R.id.datePicker);
         add = (Button) view.findViewById(R.id.add);
 
-        //instantiate the Spinner from the .xml file onto the activity
+        // inits Spinner from xml file
         spinner = (Spinner) view.findViewById(R.id.category_spinner);
 
         //creates an adapter for the current activity using the array resource created for spinner
@@ -51,10 +51,9 @@ public class AddToDoFragment extends DialogFragment{
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.spinner_categories, android.R.layout.simple_spinner_item);
 
-        //sets the default layout where the spinner items will appear on
+        //sets layout where spinner will appear to default
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        //applies the adapter on the spinner
         spinner.setAdapter(adapter);
 
         final Calendar c = Calendar.getInstance();
@@ -68,7 +67,6 @@ public class AddToDoFragment extends DialogFragment{
             @Override
             public void onClick(View v) {
                 OnDialogCloseListener activity = (OnDialogCloseListener) getActivity();
-                //appended String category to include extra attribute (category)
                 activity.closeDialog(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(), toDo.getText().toString(), spinner.getSelectedItem().toString());
                 AddToDoFragment.this.dismiss();
             }

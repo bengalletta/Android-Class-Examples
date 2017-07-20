@@ -3,9 +3,9 @@
 <resources>
     <array name="filter_selections">
         <item>All</item>
+        <item>School</item>
         <item>Home</item>
         <item>Work</item>
-        <item>School</item>
-        <item>Other</item>
+        <item>Misc</item>
     </array>
 </resources>

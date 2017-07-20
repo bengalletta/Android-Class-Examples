@@ -60,8 +60,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
         if (cursor != null) cursor.close();
         cursor = newCursor;
         if (newCursor != null) {
-            // Force the RecyclerView to refresh
-            this.notifyDataSetChanged();
+            this.notifyDataSetChanged(); // Forces RecyclerView to refresh
         }
     }
 
@@ -83,7 +82,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
             descr = (TextView) view.findViewById(R.id.description);
             due = (TextView) view.findViewById(R.id.dueDate);
 
-            //added the spinner
+            //added spinner
             spinner = (Spinner) view.findViewById(R.id.category_spinner);
             view.setOnClickListener(this);
         }
@@ -96,7 +95,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
             duedate = cursor.getString(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_DUE_DATE));
             description = cursor.getString(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_DESCRIPTION));
 
-            //grabs the spinner value from the DB
+            //grabs spinner value from database
             spinner_value = cursor.getString(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_CATEGORY));
             descr.setText(description);
             due.setText(duedate);
@@ -106,7 +105,6 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
         @Override
         public void onClick(View v) {
             int pos = getAdapterPosition();
-            //included the spinner
             listener.onItemClick(pos, description, duedate, id, spinner_value);
         }
     }
