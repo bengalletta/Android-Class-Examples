@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/mark/Desktop/AndroidClass/inclass/ToDoList/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
+        "outputFile": "/Users/bengalletta/cs4540/Android-Class-Examples/ToDoList/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 120
                 },
                 "from": {
-                    "file": "/Users/mark/.android/build-cache/2a6a6a5de6a804c20361c7f28f51f634b6a0aa9c/output/res/values-land/values-land.xml",
+                    "file": "/Users/bengalletta/.android/build-cache/f232107fc2b136b68d2b6654eb13bd7c4ba08de7/output/res/values-land/values-land.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 184
                 },
                 "from": {
-                    "file": "/Users/mark/.android/build-cache/2a6a6a5de6a804c20361c7f28f51f634b6a0aa9c/output/res/values-land/values-land.xml",
+                    "file": "/Users/bengalletta/.android/build-cache/f232107fc2b136b68d2b6654eb13bd7c4ba08de7/output/res/values-land/values-land.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 255
                 },
                 "from": {
-                    "file": "/Users/mark/.android/build-cache/2a6a6a5de6a804c20361c7f28f51f634b6a0aa9c/output/res/values-land/values-land.xml",
+                    "file": "/Users/bengalletta/.android/build-cache/f232107fc2b136b68d2b6654eb13bd7c4ba08de7/output/res/values-land/values-land.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 323
                 },
                 "from": {
-                    "file": "/Users/mark/.android/build-cache/2a6a6a5de6a804c20361c7f28f51f634b6a0aa9c/output/res/values-land/values-land.xml",
+                    "file": "/Users/bengalletta/.android/build-cache/f232107fc2b136b68d2b6654eb13bd7c4ba08de7/output/res/values-land/values-land.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -88,7 +88,7 @@
                     "endOffset": 505
                 },
                 "from": {
-                    "file": "/Users/mark/.android/build-cache/714aa8b7bc8b4e35519217c99868c9466b53b607/output/res/values-land/values-land.xml",
+                    "file": "/Users/bengalletta/.android/build-cache/c9d878179defb9773a2de19a7ca0c2eb7a18805b/output/res/values-land/values-land.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

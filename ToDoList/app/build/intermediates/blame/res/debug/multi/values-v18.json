@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/mark/Desktop/AndroidClass/inclass/ToDoList/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v18/values-v18.xml",
+        "outputFile": "/Users/bengalletta/cs4540/Android-Class-Examples/ToDoList/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v18/values-v18.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 99
                 },
                 "from": {
-                    "file": "/Users/mark/.android/build-cache/2a6a6a5de6a804c20361c7f28f51f634b6a0aa9c/output/res/values-v18/values-v18.xml",
+                    "file": "/Users/bengalletta/.android/build-cache/f232107fc2b136b68d2b6654eb13bd7c4ba08de7/output/res/values-v18/values-v18.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
