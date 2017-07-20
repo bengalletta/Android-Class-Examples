@@ -1,4 +1,4 @@
-#Wed Jul 19 18:23:12 PDT 2017
+#Wed Jul 19 19:10:05 PDT 2017
 base.0=/Users/bengalletta/cs4540/Android-Class-Examples/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_6214484cbe72fbe501d8942d3cdbee6a6b11fe9e
 renamed.1=classes.dex
 renamed.0=classes2.dex
